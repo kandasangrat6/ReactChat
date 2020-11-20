@@ -8,8 +8,8 @@
 .app__body {
   display: flex;
   background-color: #ededed;
-  margin-top: -20px;
-  width: 60vw;
+  margin-top: -10px;
+  width: 80vw;
   height: 90vh;
   box-shadow: -1px 4px 20px -6px black;
 }
