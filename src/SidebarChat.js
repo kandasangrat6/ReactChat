@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./SidebarChat.css";
 
 import { Avatar } from "@material-ui/core";
+import db from "./firebase";
 
 function SidebarChat({ id, name, addNewChat }) {
   const [seed, setSeed] = useState("");
@@ -11,9 +12,11 @@ function SidebarChat({ id, name, addNewChat }) {
   }, []);
 
   const createChat = () => {
-    const roomName = prompt("Please enter name for chat"); 
+    const roomName = prompt("Please enter name for chat room"); 
     if (roomName) {
-      //Do DB stuffs
+      db.collection("Rooms").add({
+        name: roomName,
+      });
     }
   }
 
@@ -27,7 +30,7 @@ function SidebarChat({ id, name, addNewChat }) {
   </div>
   ) : (
   <div className="sidebarChat" onClick={ createChat }>
-    <h2>Add new chat</h2>
+    <h2>Add new chat room</h2>
   </div>
   );
 }
